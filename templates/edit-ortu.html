@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SPDS MTsN 1 Sidoarjo</title>
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../static/css/datepicker3.css" rel="stylesheet">
+        <link href="../static/css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="#"><span>SPDS MTsN 1 Sidoarjo</span></a>
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!-- update  -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Update</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="" method="post">
+                        <div class="modal-body">
+                            <div class="form-group"><label>Username</label>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group"><label>password</label>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+            <div class="profile-sidebar">
+                <div class="profile-userpic">
+                    <img src="../static/uploads/admin/admin.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">Admin</div>
+                    <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+                    <!-- <div class="profile-usertitle-status"><span class="indicator label-danger"></span>Offline</div> -->
+                    <div class="profile-usertitle-status">Pengisian Data diawasi langsung oleh Operator EMIS</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="divider"></div>
+            <form role="search">
+                <div class="form-group">
+                </div>
+            </form>
+            <ul class="nav menu">
+                <li>
+                    <a href="/">
+                        <em class="fa fa-dashboard"></em>&nbsp;Dashboard
+                    </a>
+                </li>
+                {% if session_id != '' %}
+                <li>
+                    <a href="/edit-siswa">
+                        <em class="fa fa-calendar">&nbsp;</em> Data Siswa
+                    </a>
+                </li>
+                <li>
+                    <a href="/edit-ortu">
+                        <em class="fa fa-bar-chart">&nbsp;</em> Data Ortu
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <em class="fa fa-power-off">&nbsp;</em> Logout
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div><!--/.sidebar-->
+
+        <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="#">
+                            <em class="fa fa-home"></em>
+                        </a></li>
+                    <li class="active">SPDS MTsN 1 Sidoarjo</li>
+                </ol>
+            </div><!--/.row-->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Sistem Pengolahan Data Siswa MTsN 1 Sidoarjo</h2>
+                </div>
+            </div><!--/.row-->
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{ortu.nama}}
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left">
+                        <em class="fa fa-toggle-up"></em>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <form action="/simpan-ortu/0" method="post" class="form-horizontal" enctype="multipart/form-data" id="form-dataortu">
+                    <input type="hidden" name="id" value="{{ortu.id}}">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="nama_ayah">NAMA AYAH</label>
+                            <div class="col-md-9">
+                                <input id="email" name="nama_ayah" value="{{ortu.nama_ayah}}" type="text" placeholder="nama_ayah" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="nik_ayah">NIK AYAH</label>
+                            <div class="col-md-9">
+                                <input id="email" name="nik_ayah" value="{{ortu.nik_ayah}}" type="text" placeholder="nik_ayah" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="nama_ibu">NAMA IBU</label>
+                            <div class="col-md-9">
+                                <input id="email" name="nama_ibu" value="{{ortu.nama_ibu}}" type="text" placeholder="nama_ibu" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="nik_ibu">NIK IBU</label>
+                            <div class="col-md-9">
+                                <input id="email" name="nik_ibu" value="{{ortu.nik_ibu}}" type="text" placeholder="nik_ibu" class="form-control">
+                            </div>
+                        </div>
+            <!--             <div class="form-group">
+                            <label class="col-md-3 control-label" for="tempat_lahir_ortu">TEMPAT LAHIR</label>
+                            <div class="col-md-9">
+                                <input id="email" name="tempat_lahir_ortu" value="<?php //echo $siswa['tempat_lahir_ortu'] ?>" type="text" placeholder="tempat_lahir_ortu" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="tanggal_lahir_ortu">TANGGAL LAHIR</label>
+                            <div class="col-md-9">
+                                <input id="date" name="tanggal_lahir_ortu" value="<?php //echo date('Y-m-d',strtotime($siswa['tanggal_lahir_ortu'])) ?>" type="text" placeholder="tanggal_lahir_ortu" class="form-control">
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="alamat_ortu">ALAMAT</label>
+                            <div class="col-md-9">
+                                <textarea name="alamat_ortu" placeholder="alamat orangtua" class="form-control" rows="2">{{ortu.alamat_ortu}}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="kk">KK</label>
+                            <div class="col-md-9">
+                                <input id="email" name="kk" value="{{ortu.kk}}" type="text" placeholder="kk" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="userfile">UPLOAD DOKUMEN</label>
+                            <div class="col-md-9">
+                                <a href="../static/uploads/siswa/{{ortu.dokumen2}}" target="_blank"><p>{{ortu.dokumen2}}</p></a>
+                                <input type="file" name="userfile" class="form-control" placeholder="">
+                            </div>
+                         </div>
+                        <div class="form-group">
+                            <div class="col-md-12 widget-right">
+                                <button type="submit" name="submit" class="btn btn-danger btn-md pull-right" id="btn-konfirmasi">KONFIRMASI</button>
+                                <button type="button" class="btn btn-info btn-md pull-left" id="btn-sebelumnya" onclick="kirimDanKembali()">
+                                    SEBELUMNYA
+                                </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div><!--/.col-->
+        <div class="col-sm-12">
+            <p class="back-link" style="margin-bottom:10px;">Powered by <a href="https://mtsn1sidoarjo.sch.id">Yola Febrianto dan Indra Praja</a></p>
+            <p class="back-link">copyright by &copy; <a href="https://www.instagram.com/ipk18/">Indra Praja Kusuma</a></p>
+        </div>
+    </div><!--/.row-->
+</div>	<!--/.main-->
+
+<script src="../static/js/jquery-1.11.1.min.js"></script>
+<script src="../static/js/bootstrap-datepicker.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/chart.min.js"></script>
+<script src="../static/js/chart-data.js"></script>
+<script src="../static/js/easypiechart.js"></script>
+<script src="../static/js/easypiechart-data.js"></script>
+<script src="../static/js/custom.js"></script>
+<!-- <script src="<?php //echo base_url() ?>static/jquery-1.12.4.js"></script> -->
+<script src="../static/jquery.dataTables.min.js"></script>
+<script src="../static/dataTables.bootstrap4.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../ckeditor/adapters/jquery.js"></script>
+</body>
+<script>
+    $('textarea.texteditor').ckeditor();
+</script>
+
+<script type="text/javascript">
+ 
+      $(function () {
+        $("#example").DataTable({         
+          "language": {
+            "url":"../static/indonesia.json",
+            "sEmptyTable": "Tidak ada data di database"
+        }
+        });
+
+    $('#date').datepicker({
+        format: 'yyyy-mm-dd',
+        daysOfWeekDisabled: "0",
+        autoclose:true
+    });
+      
+      });
+ 
+    window.onload = function () {
+        var chart1 = document.getElementById("line-chart").getContext("2d");
+        window.myLine = new Chart(chart1).Line(lineChartData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            scaleFontColor: "#c5c7cc"
+        });
+    };
+
+    function kirimDanKembali(){
+        $('#form-dataortu').attr('action','/simpan-ortu/1');
+        $('#btn-konfirmasi').click();
+    }
+</script>
+
+</body>
+</html>

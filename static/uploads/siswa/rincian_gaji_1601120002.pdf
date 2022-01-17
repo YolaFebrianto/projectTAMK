@@ -1,0 +1,107 @@
+<style>
+table{
+	width:100%; 
+	font-size:9px;
+}
+table.total-gaji{border-top: 1px solid #000000;}
+table.list-gaji th{
+	color: #000000;
+   	text-transform:capitalize;
+   	text-align: center;
+	padding: 5px 0 5px 0;
+   	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+}
+table.list-gaji tr td.number_format,
+table.total-gaji tr td.number_format{text-align:right;}
+table td{
+	padding: 5px 0 5px 0;
+   	vertical-align:middle;
+   	border: none;
+}
+</style>
+
+<table class="lap">
+	<tr>
+		<td width="20%">No. Slip Gaji</td>
+		<td width="3%">:</td>
+		<td width="77%">1601120002</td>
+	</tr>
+	<tr>
+		<td>Tanggal Gaji</td>
+		<td>:</td>
+		<td>2016-01-12</td>
+	</tr>
+	<tr>
+		<td>NIK</td>
+		<td>:</td>
+		<td>9</td>
+	</tr>
+	<tr>
+		<td>Nama</td>
+		<td>:</td>
+		<td>Saepul Anwar</td>
+	</tr>
+	<tr>
+		<td>Alamat</td>
+		<td>:</td>
+		<td>Jl. Pojok No. 10</td>
+	</tr>
+	<tr>
+		<td>Jabatan</td>
+		<td>:</td>
+		<td>Keuangan</td>
+	</tr>
+</table>
+<table class="list-gaji">
+	<tr>
+		<th>Pembayaran</th>
+		<th>Jumlah</th>
+	</tr>
+		<tr>
+		<td>Gaji Pokok</td>
+		<td class="number_format">4,000,000.00</td>
+	</tr>
+		<tr>
+		<td>Uang Makan</td>
+		<td class="number_format">350,000.00</td>
+	</tr>
+		<tr>
+		<td>Uang Transport</td>
+		<td class="number_format">350,000.00</td>
+	</tr>
+		<tr>
+		<td>Tunjangan Keluarga</td>
+		<td class="number_format">500,000.00</td>
+	</tr>
+		<tr>
+		<td>Tunjangan Kesehatan</td>
+		<td class="number_format">500,000.00</td>
+	</tr>
+		<tr>
+		<td>Pajak</td>
+		<td class="number_format">500,000.00</td>
+	</tr>
+		<tr>
+		<td>Asuransi Jiwa</td>
+		<td class="number_format">200,000.00</td>
+	</tr>
+		<tr>
+		<td>BPJS</td>
+		<td class="number_format">200,000.00</td>
+	</tr>
+	</table>
+<table class="total-gaji">
+	<tr>
+		<td>Pendapatan</td>
+		<td class="number_format">5,700,000.00</td>
+	</tr>
+	<tr>
+		<td>Potongan</td>
+		<td class="number_format">900,000.00</td>
+	</tr>
+	<tr>
+		<td>Gaji Bersih</td>
+		<td class="number_format">4,800,000.00</td>
+	</tr>
+</table>
