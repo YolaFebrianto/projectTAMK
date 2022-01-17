@@ -8,6 +8,27 @@
         <link href="../static/css/font-awesome.min.css" rel="stylesheet">
         <link href="../static/css/datepicker3.css" rel="stylesheet">
         <link href="../static/css/styles.css" rel="stylesheet">
+        <style type="text/css">
+            .dt-siswa tr td:first-child, .dt-ortu tr td:first-child{
+                width: 50%;
+            }
+            @media (max-width: 768px) {
+                .xs-panel{
+                    display: block;
+                }
+                .sm-panel{
+                    display: none;
+                }
+            }
+            @media (min-width: 768px) {
+                .xs-panel{
+                    display: none;
+                }
+                .sm-panel{
+                    display: block;
+                }
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -100,60 +121,188 @@
             </div><!--/.row-->
 
             <div class="panel panel-default">
-                <div class="row" style="padding: 0 10px;">
-                    <div class="col-md-2">
+                <div class="row sm-panel" style="padding: 0 10px;">
+                    <div class="col-sm-6">
                         <h4>DATA SISWA</h4>
-                        <p>NAMA</p>
-                        <p>NISN</p>
-                        <p>KELAS</p>
-                        <p>JENIS KELAMIN</p>
-                        <p>NIK</p>
-                        <p>ANAK KE</p>
-                        <p>JUMLAH SDR</p>
-                        <p>TEMPAT LAHIR</p>
-                        <p>TANGGAL LAHIR</p>
-                        <p>AGAMA</p>
-                        <p>CITA- CITA</p>
-                        <p>DOKUMEN1</p>
+                        <table class="dt-siswa">
+                            <tr>
+                                <td><p>NAMA</p></td>
+                                <td><p> : {{siswa.nama}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NISN</p></td>
+                                <td><p> : {{siswa.nisn}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>KELAS</p></td>
+                                <td><p> : {{siswa.kelas}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>JENIS KELAMIN</p></td>
+                                <td><p> : {{siswa.gender}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NIK</p></td>
+                                <td><p> : {{siswa.nik_siswa}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>ANAK KE</p></td>
+                                <td><p> : {{siswa.anak_ke}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>JUMLAH SDR</p></td>
+                                <td><p> : {{siswa.jumlah_sdr}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>TEMPAT LAHIR</p></td>
+                                <td><p> : {{siswa.tempat}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>TANGGAL LAHIR</p></td>
+                                <td><p> : {{siswa.tgl_lahir}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>AGAMA</p></td>
+                                <td><p> : {{siswa.agama}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>CITA- CITA</p></td>
+                                <td><p> : {{siswa.cita_cita}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>DOKUMEN1</p></td>
+                                <td><p> : <a href="../static/uploads/siswa/{{siswa.dokumen1}}" target="_blank">{{siswa.dokumen1}}</a></p></td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="col-md-4">
-                        <h4> &nbsp; </h4>
-                        <p> : {{siswa.nama}}</p>
-                        <p> : {{siswa.nisn}}</p>
-                        <p> : {{siswa.kelas}}</p>
-                        <p> : {{siswa.gender}}</p>
-                        <p> : {{siswa.nik_siswa}}</p>
-                        <p> : {{siswa.anak_ke}}</p>
-                        <p> : {{siswa.jumlah_sdr}}</p>
-                        <p> : {{siswa.tempat}}</p>
-                        <p> : {{siswa.tgl_lahir}}</p>
-                        <p> : {{siswa.agama}}</p>
-                        <p> : {{siswa.cita_cita}}</p>
-                        <p> : <a href="../static/uploads/siswa/{{siswa.dokumen1}}" target="_blank">{{siswa.dokumen1}}</a></p>
-                    </div>
-                    <div class="col-md-2">
+                    <div class="col-sm-6">
                         <h4>DATA ORTU</h4>
-                        <p>NAMA AYAH</p>
-                        <p>NIK AYAH</p>
-                        <p>NAMA IBU</p>
-                        <p>NIK IBU</p>
-                        <p>ALAMAT ORTU</p>
-                        <p>KK</p>
-                        <p>DOKUMEN2</p>
-                        <a href="/list-siswa" class="btn btn-info btn-md pull-left">KEMBALI</a>
+                        <table class="dt-ortu">
+                            <tr>
+                                <td><p>NAMA AYAH</p></td>
+                                <td><p> : {{siswa.nama_ayah}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NIK AYAH</p></td>
+                                <td><p> : {{siswa.nik_ayah}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NAMA IBU</p></td>
+                                <td><p> : {{siswa.nama_ibu}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NIK IBU</p></td>
+                                <td><p> : {{siswa.nik_ibu}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>ALAMAT ORTU</p></td>
+                                <td><p> : {{siswa.alamat_ortu}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>KK</p></td>
+                                <td><p> : {{siswa.kk}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>DOKUMEN2</p></td>
+                                <td><p> : <a href="../static/uploads/siswa/{{siswa.dokumen2}}" target="_blank">{{siswa.dokumen2}}</a></p></td>
+                            </tr>
+                        </table>
+                        <a href="/list-siswa" class="btn btn-info btn-md pull-left" style="clear: both;">KEMBALI</a>
                     </div>
-                    <div class="col-md-4">
-                        <h4> &nbsp; </h4>
-                        <p> : {{siswa.nama_ayah}}</p>
-                        <p> : {{siswa.nik_ayah}}</p>
-                        <p> : {{siswa.nama_ibu}}</p>
-                        <p> : {{siswa.nik_ibu}}</p>
-                        <p> : {{siswa.alamat_ortu}}</p>
-                        <p> : {{siswa.kk}}</p>
-                        <p> : <a href="../static/uploads/siswa/{{siswa.dokumen2}}" target="_blank">{{siswa.dokumen2}}</a></p>
+                </div>
+                <div class="row xs-panel" style="padding: 0 10px;">
+                    <div class="col-xs-12">
+                        <h4>DATA SISWA</h4>
+                        <table class="dt-siswa">
+                            <tr>
+                                <td><p>NAMA</p></td>
+                                <td><p> : {{siswa.nama}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NISN</p></td>
+                                <td><p> : {{siswa.nisn}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>KELAS</p></td>
+                                <td><p> : {{siswa.kelas}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>JENIS KELAMIN</p></td>
+                                <td><p> : {{siswa.gender}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NIK</p></td>
+                                <td><p> : {{siswa.nik_siswa}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>ANAK KE</p></td>
+                                <td><p> : {{siswa.anak_ke}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>JUMLAH SDR</p></td>
+                                <td><p> : {{siswa.jumlah_sdr}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>TEMPAT LAHIR</p></td>
+                                <td><p> : {{siswa.tempat}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>TANGGAL LAHIR</p></td>
+                                <td><p> : {{siswa.tgl_lahir}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>AGAMA</p></td>
+                                <td><p> : {{siswa.agama}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>CITA- CITA</p></td>
+                                <td><p> : {{siswa.cita_cita}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>DOKUMEN1</p></td>
+                                <td><p> : <a href="../static/uploads/siswa/{{siswa.dokumen1}}" target="_blank">{{siswa.dokumen1}}</a></p></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row xs-panel" style="padding: 0 10px;">
+                    <div class="col-xs-12">
+                        <h4>DATA ORTU</h4>
+                        <table class="dt-ortu">
+                            <tr>
+                                <td><p>NAMA AYAH</p></td>
+                                <td><p> : {{siswa.nama_ayah}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NIK AYAH</p></td>
+                                <td><p> : {{siswa.nik_ayah}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NAMA IBU</p></td>
+                                <td><p> : {{siswa.nama_ibu}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>NIK IBU</p></td>
+                                <td><p> : {{siswa.nik_ibu}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>ALAMAT ORTU</p></td>
+                                <td><p> : {{siswa.alamat_ortu}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>KK</p></td>
+                                <td><p> : {{siswa.kk}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>DOKUMEN2</p></td>
+                                <td><p> : <a href="../static/uploads/siswa/{{siswa.dokumen2}}" target="_blank">{{siswa.dokumen2}}</a></p></td>
+                            </tr>
+                        </table>
+                        <a href="/list-siswa" class="btn btn-info btn-md pull-left" style="clear: both;">KEMBALI</a>
                     </div>
                 </div>
                 <hr>
+                <div style="clear: both;"></div>
             </div>
         </div><!--/.col-->
         <div class="col-sm-12">
@@ -171,12 +320,12 @@
 <script src="../static/js/easypiechart.js"></script>
 <script src="../static/js/easypiechart-data.js"></script>
 <script src="../static/js/custom.js"></script>
-<!-- <script src="<?php //echo base_url() ?>static/jquery-1.12.4.js"></script> -->
+<script src="../static/jquery-1.12.4.js"></script>
 <script src="../static/jquery.dataTables.min.js"></script>
 <script src="../static/dataTables.bootstrap4.min.js"></script>
 <script src="../static/bootstrap.min.js"></script>
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="../ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript" src="../static/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../static/ckeditor/adapters/jquery.js"></script>
 </body>
 <script>
     $('textarea.texteditor').ckeditor();

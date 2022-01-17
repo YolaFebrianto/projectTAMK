@@ -99,9 +99,9 @@
                 </div>
             </div><!--/.row-->
 
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="overflow-x: scroll;">
                 <h4>DATA SISWA</h4>
-                <table id="example" class="table table-striped table-bordered bg-white" style="width: 100%;">
+                <table id="example" class="table table-striped table-bordered bg-white">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -122,8 +122,8 @@
                             <td>{{sdata.nisn}}</td>
                             <td>{{sdata.kelas}}</td>
                             <td>{{sdata.gender}}</td>
-                            <td><a href="#" target="_blank"></a></td>
-                            <td><a href="#" target="_blank"></a></td>    
+                            <td><a href="../static/uploads/siswa/{{sdata.dokumen1}}" target="_blank">{{sdata.dokumen1}}</a></td>
+                            <td><a href="../static/uploads/siswa/{{sdata.dokumen2}}" target="_blank">{{sdata.dokumen2}}</a></td>    
                             <td><a href="/detail-siswa/{{sdata.id}}" class="btn btn-info">Lihat</a></td>
                         </tr>
                         {% endfor %}
@@ -178,12 +178,12 @@
 <script src="../static/js/easypiechart.js"></script>
 <script src="../static/js/easypiechart-data.js"></script>
 <script src="../static/js/custom.js"></script>
-<!-- <script src="<?php //echo base_url() ?>static/jquery-1.12.4.js"></script> -->
+<script src="../static/jquery-1.12.4.js"></script>
 <script src="../static/jquery.dataTables.min.js"></script>
 <script src="../static/dataTables.bootstrap4.min.js"></script>
 <script src="../static/bootstrap.min.js"></script>
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="../ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript" src="../static/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../static/ckeditor/adapters/jquery.js"></script>
 </body>
 <script>
     $('textarea.texteditor').ckeditor();
