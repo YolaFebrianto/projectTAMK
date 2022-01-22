@@ -56,7 +56,7 @@ def index():
 @app.route('/cari-siswa', methods=['POST'])
 def cari_siswa():
 	nisn_formdata = request.form['nisn'];
-	alamatserver = "http://coba.mtsn1sidoarjo.com/api/login/"+nisn_formdata
+	alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/login/"+nisn_formdata
 	headers = {'Content-Type':'application/json', 'Accept':'text/plain'}
 	siswa = requests.get(alamatserver)
 
@@ -74,7 +74,7 @@ def login():
 def login_admin():
 	username_formdata = request.form['username'];
 	password_formdata = request.form['password'];
-	alamatserver = "http://coba.mtsn1sidoarjo.com/api/login_admin/"+username_formdata+"/"+password_formdata
+	alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/login_admin/"+username_formdata+"/"+password_formdata
 	headers = {'Content-Type':'application/json', 'Accept':'text/plain'}
 	admin = requests.get(alamatserver)
 
@@ -91,7 +91,7 @@ def edit_siswa():
 	else:
 		return redirect('/')
 
-	alamatserver = "http://coba.mtsn1sidoarjo.com/api/siswa/"+id_siswa
+	alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/siswa/"+id_siswa
 	headers = {'Content-Type':'application/json', 'Accept':'text/plain'}
 	siswa = requests.get(alamatserver)
 	return render_template('edit-siswa.html',siswa=siswa.json(),id_siswa=id_siswa)
@@ -103,7 +103,7 @@ def edit_ortu():
 	else:
 		return redirect('/')
 
-	alamatserver = "http://coba.mtsn1sidoarjo.com/api/siswa/"+id_siswa
+	alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/siswa/"+id_siswa
 	headers = {'Content-Type':'application/json', 'Accept':'text/plain'}
 	ortu = requests.get(alamatserver)
 	return render_template('edit-ortu.html',ortu=ortu.json())
@@ -150,7 +150,7 @@ def simpan_siswa():
 		}
 
 		# datasiswa_json = json.dumps(datasiswa)
-		alamatserver = "http://coba.mtsn1sidoarjo.com/api/siswa/"+id_siswa+"/1"
+		alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/siswa/"+id_siswa+"/1"
 		headers = {'Content-Type':'application/json'}
 		r = requests.post(alamatserver, json=datasiswa, headers=headers)
 		return redirect('/edit-ortu')
@@ -187,7 +187,7 @@ def simpan_ortu(ganti_link=0):
 		}
 
 		# datasiswa_json = json.dumps(datasiswa)
-		alamatserver = "http://coba.mtsn1sidoarjo.com/api/siswa/"+id_siswa+"/2"
+		alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/siswa/"+id_siswa+"/2"
 		headers = {'Content-Type':'application/json'}
 		r = requests.post(alamatserver, json=datasiswa, headers=headers)
 		if ganti_link == 1:
@@ -202,7 +202,7 @@ def list_siswa():
 	else:
 		return redirect('/')
 
-	alamatserver = "http://coba.mtsn1sidoarjo.com/api/siswa"
+	alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/siswa"
 	headers = {'Content-Type':'application/json', 'Accept':'text/plain'}
 	r = requests.get(alamatserver)
 	return render_template('list-siswa.html',semuasiswa = r.json())
@@ -214,7 +214,7 @@ def detail_siswa(id_siswa):
 	else:
 		return redirect('/')
 
-	alamatserver = "http://coba.mtsn1sidoarjo.com/api/siswa/"+id_siswa
+	alamatserver = "https://spds.mtsn1sidoarjo.sch.id/api/siswa/"+id_siswa
 	headers = {'Content-Type':'application/json', 'Accept':'text/plain'}
 	siswa = requests.get(alamatserver)
 	return render_template('detail-siswa.html',siswa=siswa.json())

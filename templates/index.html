@@ -65,8 +65,11 @@
                 </div>
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name">Admin</div>
+                    {% if session_id != '' or admin_id != '' %}
                     <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
-                    <!-- <div class="profile-usertitle-status"><span class="indicator label-danger"></span>Offline</div> -->
+                    {% else %}
+                    <div class="profile-usertitle-status"><span class="indicator label-danger"></span>Offline</div>
+                    {% endif %}
                     <div class="profile-usertitle-status">Pengisian Data diawasi langsung oleh Operator EMIS</div>
                 </div>
                 <div class="clear"></div>
